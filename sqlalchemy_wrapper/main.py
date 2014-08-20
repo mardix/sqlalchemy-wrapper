@@ -91,7 +91,7 @@ class SQLAlchemy(object):
         return self._apply_driver_hacks(options)
 
     def _apply_driver_hacks(self, options):
-        if info.drivername.startswith('mysql'):
+        if self.info.drivername.startswith('mysql'):
             self.info.query.setdefault('charset', 'utf8')
             options.setdefault('pool_size', 10)
             options.setdefault('pool_recycle', 7200)
